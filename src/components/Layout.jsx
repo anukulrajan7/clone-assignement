@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Header from "./Header";
-import Sidebar from "./sidebar";
+import Sidebar from "./Sidebar";
 import { ThemeProvider } from "../context/ThemeContext";
 const Layout = ({ children }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);

@@ -41,7 +41,7 @@ export const VideoCard = memo(
 );
 
 export const TrendingVideoCard = memo(
-  ({ thumbnail, avatar, title, channel, views, date }) => {
+  ({ thumbnail, title, channel, views, date }) => {
     return (
       <div
         className={` w-full  md:max-h-[450px] hover:bg-[#f2f2f2] dark:hover:bg-[#272727]
