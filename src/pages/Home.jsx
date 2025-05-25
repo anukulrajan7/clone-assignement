@@ -15,7 +15,7 @@ const Home = () => {
     setLoading(true);
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_API_URL}/videos/all?search=${searchText}`,
+        `/.netlify/functions/proxy/videos/all?search=${searchText}`,
         {
           method: "GET",
           headers: {
