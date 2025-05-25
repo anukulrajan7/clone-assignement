@@ -13,12 +13,15 @@ const Trending = () => {
 
     setLoading(true);
     try {
-      const response = await fetch(`/api/videos/trending`, {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${token}`,
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/videos/trending`,
+        {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
         },
-      });
+      );
 
       if (!response.ok) {
         throw new Error(`API error: ${response.status}`);
