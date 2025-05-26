@@ -2,10 +2,12 @@ import { useEffect, useState } from "react";
 import { VideoCard } from "../components/Card";
 import SearchComponent from "../components/Search";
 import { getAuth } from "../hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   const [videosContent, setVideosContent] = useState([]);
   const [isLoading, setLoading] = useState(false);
+  const navigate = useNavigate();
   const [searchText, setSearchText] = useState("");
 
   const fetchVideosContent = async () => {
@@ -59,6 +61,7 @@ const Home = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-6 md:max-h-[70vh] px-6">
           {videosContent.map((video) => (
             <VideoCard
+              onClick={() => navigate(`/video/${video?.id}`)}
               key={video.id}
               thumbnail={video?.thumbnail_url}
               avatar={video.channel?.profile_image_url}

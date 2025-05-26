@@ -1,9 +1,9 @@
 import { memo } from "react";
-
 export const VideoCard = memo(
-  ({ thumbnail, avatar, title, channel, views, date }) => {
+  ({ thumbnail, avatar, title, channel, views, date, onClick }) => {
     return (
       <div
+        onClick={onClick}
         className={` w-full md:max-w-[360px] hover:bg-[#f2f2f2] dark:hover:bg-[#272727] rounded-lg overflow-hidden transition-colors duration-300 `}
       >
         {/* Thumbnail */}
@@ -41,9 +41,10 @@ export const VideoCard = memo(
 );
 
 export const TrendingVideoCard = memo(
-  ({ thumbnail, title, channel, views, date }) => {
+  ({ thumbnail, title, channel, views, date, onClick }) => {
     return (
       <div
+        onClick={onClick}
         className={` w-full  md:max-h-[450px] hover:bg-[#f2f2f2] dark:hover:bg-[#272727]
  flex flex-col md:flex-row  justify-center md:justify-start items-center  rounded-lg overflow-hidden transition-colors duration-300 `}
       >
@@ -51,7 +52,7 @@ export const TrendingVideoCard = memo(
         <img
           src={thumbnail}
           alt={title}
-          className="w-full h-[250px] md:max-w-[400px] object-contain rounded-t-lg"
+          className="w-full h-[250px] md:max-w-[400px] object-cover rounded-t-lg"
         />
 
         {/* Content */}
@@ -75,9 +76,10 @@ export const TrendingVideoCard = memo(
 );
 
 export const GamingCard = memo(
-  ({ thumbnail, views, title }) => {
+  ({ thumbnail, views, title, onClick }) => {
     return (
       <div
+        onClick={onClick}
         className={` w-full  md:max-w-[360px] hover:bg-[#f2f2f2] p-4 dark:hover:bg-[#272727] rounded-lg overflow-hidden transition-colors duration-300 `}
       >
         {/* Thumbnail */}

@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import { GamingCard } from "../components/Card";
 import { getAuth } from "../hooks/useAuth";
+import { Link, useNavigate } from "react-router-dom";
 
 const Gaming = () => {
   const [videosContent, setVideosContent] = useState([]);
   const [isLoading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const fetchVideosContent = async () => {
     const { token } = getAuth();
@@ -51,6 +53,7 @@ const Gaming = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-6 md:max-h-[70vh] px-6">
           {videosContent.map((video) => (
             <GamingCard
+              onClick={() => navigate(`/video/${video?.id}`)}
               key={video.id}
               thumbnail={video?.thumbnail_url}
               title={video.title}

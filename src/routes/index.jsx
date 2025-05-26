@@ -10,6 +10,8 @@ import Layout from "../components/Layout";
 import Home from "../pages/Home";
 import Trending from "../pages/Trending";
 import Gaming from "../pages/Gaming";
+import VideoDetails from "../pages/VideoDetails";
+import SavedVideos from "../pages/Saved";
 
 // ✅ Route guard for authenticated users
 const ProtectedRoute = ({ children }) => {
@@ -54,6 +56,22 @@ const AppRoutes = () => {
           element={
             <ProtectedRoute>
               <Gaming />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/saved"
+          element={
+            <ProtectedRoute>
+              <SavedVideos />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/video/:videoId"
+          element={
+            <ProtectedRoute>
+              <VideoDetails />{" "}
             </ProtectedRoute>
           }
         />

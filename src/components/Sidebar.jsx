@@ -12,7 +12,7 @@ const navItems = [
   { label: "Home", icon: faHome, href: "/" },
   { label: "Trending", icon: faFire, href: "/trending" },
   { label: "Gaming", icon: faGamepad, href: "/gaming" },
-  { label: "Saved Videos", icon: faSave, href: "/" }, // changed for uniqueness
+  { label: "Saved Videos", icon: faSave, href: "/saved" },
 ];
 
 const Sidebar = ({ isOpen, toggleSidebar }) => {

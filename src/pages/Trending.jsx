@@ -2,18 +2,19 @@ import { useEffect, useState } from "react";
 import { TrendingVideoCard } from "../components/Card";
 
 import { getAuth } from "../hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 
 const Trending = () => {
   const [videosContent, setVideosContent] = useState([]);
   const [isLoading, setLoading] = useState(false);
-
+  const navigate = useNavigate();
   const fetchVideosContent = async () => {
     const { token } = getAuth();
     if (!token) return;
 
     setLoading(true);
     try {
-      const response = await fetch(`/api/trending`, {
+      const response = await fetch(`/api/videos/trending`, {
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -53,6 +54,7 @@ const Trending = () => {
           {videosContent.map((video) => (
             <TrendingVideoCard
               key={video.id}
+              onClick={() => navigate(`/video/${video?.id}`)}
               thumbnail={video?.thumbnail_url}
               avatar={video.channel?.profile_image_url}
               title={video.title}
