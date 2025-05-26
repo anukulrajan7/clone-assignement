@@ -12,7 +12,7 @@ const Gaming = () => {
 
     setLoading(true);
     try {
-      const response = await fetch(`/.netlify/functions/proxy/videos/gaming`, {
+      const response = await fetch(`/api/videos/gaming`, {
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,

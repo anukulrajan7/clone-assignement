@@ -14,15 +14,12 @@ const Home = () => {
 
     setLoading(true);
     try {
-      const response = await fetch(
-        `/.netlify/functions/proxy/videos/all?search=${searchText}`,
-        {
-          method: "GET",
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
+      const response = await fetch(`/api/videos/all?search=${searchText}`, {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`,
         },
-      );
+      });
 
       if (!response.ok) {
         throw new Error(`API error: ${response.status}`);
